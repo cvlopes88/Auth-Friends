@@ -24,15 +24,19 @@ useEffect(() => {
 
  
      
- console.log(friends)
+ console.log( friends )
 
    return (
    
    <div>
-      <FriendsCard   friend={friends}  />
+
+     <h1>friends list</h1>
+     <FriendsCard />
+     {/* {friends.map(item => (
+      <FriendsCard   name={item.name}  />
            
-        
-     
+     ))}
+      */}
    </div>
    )
    

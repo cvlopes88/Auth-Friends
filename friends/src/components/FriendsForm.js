@@ -2,26 +2,31 @@ import React, { useEffect, useState } from 'react';
 import { axiosWithAuth } from './utils/axiosWithAuth';
 
 
-const FriendsForm = () => {
+const FriendsForm = (props) => {
 let [newFriend, setNewFriend] = useState({name:'', age:'', email:''});
 
 let onSubmit = e => {
     e.preventDefault();
     axiosWithAuth()
-    .post('/form')
-    .then(
+    .post('/friends', newFriend)
+    .then(res => {
         
            setNewFriend(...newFriend)
-
+           props.history.push('/form')
         
-    )
+    })
+    .catch(err => console.log(err))
 }
 
 let onChange = i => {
-    let {name, value} = i.target
-    setNewFriend({
-        ...newFriend,
-        [name]: value
+    // let {name, value} = i.target.value
+    // setNewFriend({
+    //     ...newFriend,
+    //     [name]: value
+    // })
+
+    setNewFriend( {
+        ...newFriend, [i.target.name]: i.target.value
     })
 }
 

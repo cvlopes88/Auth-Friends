@@ -13,7 +13,7 @@ const FriendsCard = props => {
       
         <div>
        
-             
+            <h1>Friends Card</h1> 
 
         </div>
        
