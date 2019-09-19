@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 const FriendsCard = props => {
-  console.log(props.friend)
+ 
    
   
     return (
@@ -11,11 +11,12 @@ const FriendsCard = props => {
         
 
       
-        <div>
+        <div className='friendCard'>
        
-            <h1>Friends Card</h1> 
-
-        </div>
+            <h1>{props.name}</h1> 
+            <h4>{props.age}</h4>
+            <h4>{props.email}</h4>
+            </div>
        
     )
 }

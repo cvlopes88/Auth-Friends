@@ -14,18 +14,19 @@ function App() {
      
       <ul>
         <li>
-          <Link to='/form'  component={FriendsForm}>SignUp</Link>
+          <Link to='/friendsForm'  component={FriendsForm}>SignUp</Link>
         </li>
         <li>
         <Link to='/protected'  component={FriendsList}>Protected page</Link>
         </li>
       </ul>
+      
       <Switch>
-        
-        <PrivateRoute exact path='/protected' component={FriendsList} />
+      <PrivateRoute path="/friendsForm" component={FriendsForm} />
+        <PrivateRoute path='/protected' component={FriendsList} />
     <Route to='/login' component={Login}/>
-    <Route component={Login} />
-    <Route  exact path='/form' component={FriendsForm} />
+    
+    
     </Switch>  
     </div>
     </Router>

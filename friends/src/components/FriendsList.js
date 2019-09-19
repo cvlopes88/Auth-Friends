@@ -4,7 +4,7 @@ import FriendsCard from './FriendsCard';
 
 
 const FriendsList = () => {
-const [friends, setFriends] = useState({});
+const [friends, setFriends] = useState([]);
    
 
  
@@ -31,12 +31,12 @@ useEffect(() => {
    <div>
 
      <h1>friends list</h1>
-     <FriendsCard />
-     {/* {friends.map(item => (
-      <FriendsCard   name={item.name}  />
+     
+     {friends.map(item => (
+      <FriendsCard  key={item.id} name={item.name} age={item.age} email={item.email}  />
            
      ))}
-      */}
+     
    </div>
    )
    

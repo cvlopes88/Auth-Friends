@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { axiosWithAuth } from './utils/axiosWithAuth';
-
+import { Link } from 'react-router-dom';
+import FriendsForm from './FriendsForm';
 
 
 const Login = (props) => {
@@ -19,7 +20,7 @@ const Login = (props) => {
 
  let login = e => {
       e.preventDefault();
-      axiosWithAuth()
+    axiosWithAuth()
       .post('/login', credentials)
       .then(res => { 
           localStorage.setItem('token', res.data.payload);
@@ -49,8 +50,9 @@ const Login = (props) => {
                    value={credentials.password}
                    onChange={handleChange}
                    />
-                   <button>Login</button>
-
+                   <button type='submit'>Login</button>
+                  
+                  
                 </form>
             </div>
         );

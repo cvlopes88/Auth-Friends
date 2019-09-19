@@ -3,7 +3,7 @@ import { axiosWithAuth } from './utils/axiosWithAuth';
 
 
 const FriendsForm = (props) => {
-let [newFriend, setNewFriend] = useState({name:'', age:'', email:''});
+let [newFriend, setNewFriend] = useState({});
 
 let onSubmit = e => {
     e.preventDefault();
@@ -11,19 +11,14 @@ let onSubmit = e => {
     .post('/friends', newFriend)
     .then(res => {
         
-           setNewFriend(...newFriend)
-           props.history.push('/form')
+          console.log('success')
         
     })
     .catch(err => console.log(err))
 }
 
 let onChange = i => {
-    // let {name, value} = i.target.value
-    // setNewFriend({
-    //     ...newFriend,
-    //     [name]: value
-    // })
+   
 
     setNewFriend( {
         ...newFriend, [i.target.name]: i.target.value
@@ -33,10 +28,10 @@ let onChange = i => {
     return (
 
         <form onSubmit={onSubmit} >
-            <input  onChange={onChange} type='text' name='name' placeholder='name here' />
-            <input  onChange={onChange} type='number' name='age' placeholder='0' />
-            <input  onChange={onChange} type='email' name='email' placeholder='email' />
-            <button>Submit!</button>
+            <input value={newFriend.name}  onChange={onChange} type='text' name='name' placeholder='name here' />
+            <input   value={newFriend.age} onChange={onChange} type='number' name='age' placeholder='0' />
+            <input   value={newFriend.email} onChange={onChange} type='email' name='email' placeholder='email' />
+            <button type='submit' >Submit!</button>
             
 
         </form>
